@@ -107,7 +107,7 @@ ATA = A' * A;
 [sigma1, idx] = sort(sqrt(diag(D)), 'descend');
 V = V1(:, idx);
 Sigma = abs(diag(sigma1));
-U = A * V/Sigma;
+U = abs(A * V/Sigma);
 disp('Ma tr?n U:');
 disp(U);
 disp('Ma tr?n Sigma:');
@@ -116,4 +116,7 @@ disp('Ma tr?n V:');
 disp(V);
 disp('Ma tr?n SVD c?a A là')
 disp(U*Sigma*inv(V))
+
+[u,s,v] = svd(A)
+
 
