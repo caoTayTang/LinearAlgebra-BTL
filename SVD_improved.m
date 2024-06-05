@@ -2,7 +2,7 @@
 close all
 clc
 
-file_path = '.\cat.jpg';
+file_path = '.\bachkhoa.jpg';
 A = im2double((imread(file_path)));
 
 %% Split 3 color Channels 
@@ -48,12 +48,12 @@ totalEnergy_R = sum(singularValues_R.^2);
 totalEnergy_G = sum(singularValues_G.^2);
 totalEnergy_B = sum(singularValues_B.^2);
 
-% Tính ph?n tr?m n?ng l??ng tích l?y cho m?i giá tr? riêng
+% Tính phan tram nang luong tích luy cho moi giá tri riêng
 cumulative_energy_R = cumsum(singularValues_R.^2) / totalEnergy_R * 100;
 cumulative_energy_G = cumsum(singularValues_G.^2) / totalEnergy_G * 100;
 cumulative_energy_B = cumsum(singularValues_B.^2) / totalEnergy_B * 100;
 
-% V? ?? th?
+% Ve do thi
 %subplot(1, 2, 2);
 plot(cumulative_energy_R, 'r', 'LineWidth', 2);
 hold on;
@@ -66,7 +66,7 @@ legend('Kênh ??', 'Kênh Xanh Lá', 'Kênh Xanh D??ng');
 grid on;
 
 
-%% Tính toán l?i tái t?o cho m?i giá tr? r
+%% Tính toán lai tái tao cho moi giá tri r
 
 num_singular_values = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]; % L?y m?u các giá tr? r
 compression_ratios = zeros(1, length(num_singular_values));
@@ -94,7 +94,7 @@ title('Phân tích nén ?nh b?ng SVD');
 
 subplot(1, 2, 2);
 plot(num_singular_values, compressed_sizes / (1024^2), '-o'); % Kích th??c nén (MB)
-xlabel('S? l??ng singular value ???cc gi? l?i (r)');
+xlabel('S? l??nng singular value ???c gi? l?i (r)');
 ylabel('Kích th??c nén (MB)');
 original_size_MB = original_size / (1024^2 * 8); % ??i kích th??c ?nh g?c sang MB
 title('Kích th??c nén ?nh v?i các giá tr? r khác nhau');
